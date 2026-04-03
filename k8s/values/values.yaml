@@ -1,19 +1,17 @@
 global:
-  domain: ALICE_NLP.alice-platform.com
+  domain: alice-nlp.alice-platform.com
 frontend:
   replicas: 2
-  image: ALICE_NLP/frontend:latest
+  image: alice-nlp/frontend:latest
   resources: { requests: { cpu: 100m, memory: 128Mi }, limits: { cpu: 500m, memory: 512Mi } }
 apiGateway:
   replicas: 2
-  image: ALICE_NLP/api-gateway:latest
+  image: alice-nlp/api-gateway:latest
   resources: { requests: { cpu: 200m, memory: 256Mi }, limits: { cpu: 1000m, memory: 1Gi } }
 coreEngine:
   replicas: 2
-  image: ALICE_NLP/core-engine:latest
+  image: alice-nlp/core-engine:latest
   resources: { requests: { cpu: 500m, memory: 512Mi }, limits: { cpu: 2000m, memory: 2Gi } }
-redis:
-  image: redis:7-alpine
 autoscaling:
   enabled: true
   minReplicas: 2
